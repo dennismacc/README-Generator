@@ -34,7 +34,7 @@ const questions = [
     {
         type: 'input',
         name: 'contributors',
-        messages: 'Would you like to include a list of contributors?',
+        message: 'Would you like to include a list of contributors?',
     },
     {
         type: 'input',

@@ -1,0 +1,11 @@
+{
+	"title": "README-Generator",
+	"description": "This command-line application dynamically generates a professional README.md file from a user's input using the Inquirer package.",
+	"installation": "Clone repository from GitHub, run npm init, install dependencies, run node",
+	"usage": "This app can help you quickly and easily create README files for your projects",
+	"license": "MIT",
+	"contributors": "No contributors",
+	"username": "dennismacc",
+	"email": "dennis.maccarthy@gmail.com",
+	"licenseBadge": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+}
