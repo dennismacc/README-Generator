@@ -12,11 +12,6 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contents',
-        message: 'What would you like to add to your project Table of Contents?',
-    },
-    {
-        type: 'input',
         name: 'description',
         message: 'What is the description for your project?',
     },
@@ -34,7 +29,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Would you like to include a license file for your project?',
-        choices: ['Apache License 2.0', 'GNU General Public License', 'MIT License'],
+        choices: ['Apache 2.0', 'GNU GPL v3', 'MIT', 'BSD 3-Clause', 'MPL 2.0', 'Unlicense'],
     },
     {
         type: 'input',
@@ -53,11 +48,32 @@ const questions = [
     }
 ];
 
+// Function to return license badge
+function licenseBadge(value) {
+    if (value === "GNU GPLv3") {
+      return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
+    } else if (value === "MPL 2.0") {
+      return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
+    } else if (value === "MIT") {
+      return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+    } else if (value === "Apache 2.0") {
+      return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+    } else if (value === "BSD 3-Clause") {
+        return "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"; 
+    } else {
+      return "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
+    }
+  }
+  
+
 // Function to create README file
-function createReadme(answers) {
-    fs.writeFileSync('./README.md', `
+function createReadme(answers) { 
+    answers.licenseBadge = licenseBadge(answers.license);
+    fs.writeFileSync('./READMEexample.md',
+     `
     # ${answers.title}
-    
+    ${answers.licenseBadge}
+
     ## Table of Contents
     - [Description](#description)
     - [Installation](#installation)
@@ -76,16 +92,17 @@ function createReadme(answers) {
     ${answers.usage}
 
     ## License
-    ${answers.license}
+    This project is licensed under ${answers.license}
 
     ## Contributing
     ${answers.contributors}
 
     ## Contact
-    Any questions? Reach out for more information!
+    If you have any questions about this project please reach out for more information!
     - GitHub: https//:github.com/${answers.username}
     - Email: ${answers.email}
-    `);
+    `
+    );
 };
 
 // Function to ask user questions
