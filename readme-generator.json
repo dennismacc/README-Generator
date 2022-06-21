@@ -1,0 +1,11 @@
+{
+	"title": "README-Generator",
+	"description": "This command-line application dynamically generates a professional README.md file from a user's input using the Inquirer package.",
+	"installation": "Run npm init, install dependencies, run node",
+	"usage": "The app is run by opening the terminal and answering the prompted questions from the command line. After answering all the questions, the README file will automatically be created along with a JSON file that contains the data that was input by the user.",
+	"license": "MIT",
+	"contributing": "If you would like to contribute to this project, create a pull request and upon review and approval your changes will be added to the project!",
+	"username": "dennismacc",
+	"email": "dennis.maccarthy@gmail.com",
+	"licenseBadge": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+}
