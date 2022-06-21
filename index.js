@@ -33,8 +33,8 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contributors',
-        message: 'Would you like to include a list of contributors?',
+        name: 'contributing',
+        message: 'How can others contribute to your project?',
     },
     {
         type: 'input',
@@ -95,7 +95,7 @@ function createReadme(answers) {
     This project is licensed under ${answers.license}
 
     ## Contributing
-    ${answers.contributors}
+    ${answers.contributing}
 
     ## Contact
     If you have any questions about this project please reach out for more information!
